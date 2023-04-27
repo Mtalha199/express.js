@@ -1,5 +1,15 @@
 const express=require('express')
 const app=express();
+const moongoose=require('mongoose')
+
+moongoose.connect("mongodb://localhost:27017/Talha",{      
+family: 4,
+
+}).then(()=>{
+    console.log("connected to db")
+}).catch((err)=>{
+    console.log(err)
+})
 
 app.get('/',(req,res)=>{
 res.send("this is home page of express")
