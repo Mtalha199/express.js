@@ -29,8 +29,19 @@ const firstCollectionSchema=new schema({
 })
 
 //Defining the name of collection and schema
- moongoose.model('Talha',firstCollectionSchema)
+const firstCol=new  moongoose.model('Talha',firstCollectionSchema)
 
+
+ //Adding document by using promises
+ const createDocument=async ()=>{
+ const firstDoc=new firstCol({
+    username:"Talha",
+    password:"tarajdh199"
+ })
+ const result=await firstDoc.save();
+ console.log(result)
+ }
+createDocument();
 app.get('/',(req,res)=>{
 res.status(200).send("this is home page of express")
 })
